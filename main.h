@@ -8,18 +8,21 @@
 
 
 /**
- * struct print - struct for specifiers to print
- * @t: characters to print
- * @f: funtion to handle the printing/
+ * struct print - struct for printer functions
+ * @type_arg: identifier
+ * @f: funtion to handle the printing
+ *
+ * Description: struct that stores pointers to a
+ * printer functions.
  */
 
-int _printf(const char *format, ...);
-
-typedef struct print 
+typedef struct print
 {
 	char *type_arg;
 	int (*f)(va_list, char *, unsigned int);
 } print_t;
+
+int _printf(const char *format, ...); 
 int print_prg(va_list __attribute__((unused)), char *, unsigned int);
 int print_chr(va_list arguments, char *buf, unsigned int ibuf);
 int print_str(va_list arguments, char *buf, unsigned int ibuf);
